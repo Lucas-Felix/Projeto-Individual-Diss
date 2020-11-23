@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="CSS/cadastro-style.css"> <!--CHAMANDO CSS EXTERNO!-->
+    <link rel="icon" href="img/Logo-diss.png">
+</head>
+<body>
+
+    <!--CORPO DA PÁGINA!-->
+
+    <div id='container'>
+
+        <div id="container-img">
+            <img src="img/tela-cadastro1.jpg" alt="" id="back-img">
+        </div>
+      
+        <div id="form"> 
+            <h3 id='login'>CADASTRO</h3>
+            <img class="mao" src="img/riot-mao.png" alt="">
+            <input id='input_email' placeholder="Nome">
+            <br>
+            <input id='input_email' placeholder="Email">
+            <br>
+            <input id='input_email' placeholder="Confimar Email">
+            <br>
+            <input type="password" id='input_senha' placeholder="Senha"> <!--DEIXAR O CAMPO COM BOLINHAS!-->
+            <br>
+            <input type="password" id='input_senha' placeholder="Confimar Senha">
+            <div id="buttons">
+                <button id='btn-cadastro' class='btns'><a href="login.html">Voltar</a></button>
+                <button id='btn' class='btns' onclick="validarLogin()">Cadastre-se </button>
+                <img class="logo-riot" src="img/heimer-removebg-preview (2).png" alt="">
+                <img class="logo-diss" src="img/agents-group-539f9e91c0ca94a88baafa239808180b.png" alt="">
+           
+            </div>
+        </div>
+        
+        
+    </div>     
+
+    <!-- FOOTER -->
+<div class="footer">
+    <div class="container-footer">
+        <h3>© Copyright <strong>Riotdiss</strong>. Todos os direitos reservados</h3>
+    </div>
+</body>
+</html>
+
+
+
+
+
+<!-- <script>
+    function validarLogin(){
+          if(input_email.value == "admin" && input_senha.value == "admin"){
+            alert("Logado com sucesso. Seja Bem-Vindo.")
+            window.location.href = `../Backend - Sprint 2/dashboard-turtle-life.html`;
+          }else {
+            alert("Usuário ou senha incorreto. Tente novamente")
+          }
+    }
+  
+</script> -->

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    <link rel="stylesheet" href="CSS/noticias-style.css">
+    <!--CHAMANDO CSS EXTERNO!-->
+    <link rel="icon" href="img/Logo-diss.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+
+            <b>
+                <div class="nav">
+
+                    <center>
+                        <ul>
+                            <li class="li_menu"><a href="menu.html">JOGOS</a>
+                            </li>
+                            <li class="li_menu"><a href="riot+.html">RIOT+</a>
+                            </li>
+                            <li class="li_menu"><a href="perfil.html">PERFIL</a>
+                            </li>
+                            <li class="menu-atual" class="li_menu"><a href="noticias.html">NOTICIAS</a>
+                            </li>
+                            <li class="li_menu"><a href="login.html">SAIR</a>
+                            </li>
+                        </ul>
+                    </center>
+                </div>
+            </b>
+
+        </div>
+        <a href="menu.html"><img class="logo_diss" src="img/Logo-diss.png" alt="logo"></a>
+        <div class="container-corpo">
+
+            <div class="menu-noticias">
+                <img onclick="mostrar1()" class="ceta1" src="img/ceta1.png" alt="">
+                <img onclick="mostrar2()" class="ceta2" src="img/ceta2.png" alt="">
+                <a class="animate__animated animate__backInRight" target="blank" style="display: block;" id="noticia_1"
+                    href="https://ruinedking.com/"><img class="img-menu" src="img/Noticias-1.png" alt=""></a>
+                <a class="animate__animated animate__backInRight" target="blank" style="display: block;" id="noticia_2"
+                    href="https://www.riotgames.com/pt-br/not%C3%ADcias/o-login-via-redes-sociais-chegou"><img
+                        class="img-menu" src="img/Noticias-2.png" alt=""></a>
+                <a class="animate__animated animate__backInLeft" target="blank" style="display: none;" id="noticia_3"
+                    href="https://na.leagueoflegends.com/pt-br/news/community/diretrizes-musicas-da-riot-para-criadores/"><img
+                        class="img-menu" src="img/Noticias-3.png" alt=""></a>
+                <a class="animate__animated animate__backInLeft" target="blank" style="display: none;" id="noticia_4"
+                    href="https://www.riotgames.com/pt-br/not%C3%ADcias/uma-mensagem-das-nossas-equipes-de-seguranca-e-privacidade-sobre-o-vanguard"><img
+                        class="img-menu" src="img/Noticias-4.png" alt=""></a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer">
+        <h3>© Copyright <strong>Riotdiss</strong>. Todos os direitos reservados</h3>
+    </div>
+
+
+</body>
+
+<script>
+
+    function mostrar1() {
+
+        noticia_1.style.display = `none`;
+        noticia_2.style.display = `none`;
+        noticia_3.style.display = `block`;
+        noticia_4.style.display = `block`;
+
+    }
+
+    function mostrar2() {
+
+        noticia_1.style.display = `block`;
+        noticia_2.style.display = `block`;
+        noticia_3.style.display = `none`;
+        noticia_4.style.display = `none`;
+
+    }
+
+</script>
+
+
+
+</script>
