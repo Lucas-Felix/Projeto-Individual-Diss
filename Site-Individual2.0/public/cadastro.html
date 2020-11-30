@@ -25,11 +25,11 @@
 
         <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
             <label for="NomeeSobrenome">Nome e sobrenome</label>
-            <input type="text" name="NomeeSobrenome" class="input-padrao" autofocus="autofocus" placeholder="Nome completo"  required minlength="4">
+            <input type="text" name="NomeeSobrenome" class="input-padrao" autofocus="autofocus" placeholder="Nome"  required minlength="4">
             <label for="Usuario">Usuario</label>
             <input type="text" name="NomeUsuario" class="input-padrao" placeholder="Usuário para login"  required minlength="4">
-            <label for="Usuario">Email</label>
-            <input type="text" name="email" class="input-padrao" placeholder="Email"  required minlength="4">
+            <label onkeyup="validar_email()" for="Usuario">Email</label>
+            <input id="email" type="text" name="email" class="input-padrao" placeholder="Email"  required minlength="4">
             <label for="senha">Senha</label><br>
             <input type="password" name="senha" class="input-padrao" placeholder="**********"  required minlength="4">
             <div id="buttons">
@@ -40,7 +40,7 @@
            
             </div>
         </form>
-         <img src="img/carregando.gif" id="img_aguarde" style="display: none;" width="100px">
+         <img src="img/carregando.gif" id="img_aguarde" style="display: none; margin: 0px 0px -55px 110px; " width="100px">
     
                 <div id="div_erro" style="background-color: #bf8899; color: maroon; display: none;">
                     Erro no cadastro
@@ -96,5 +96,20 @@
      img_aguarde.style.display='none';
         div_erro.style.display='block';
     }
+
+    function validar_email(){
+       
+            var emaill = email.value;
+            if(emaill.includes('@') == true && emaill.includes('.com') == true){
+                email.style = 'border-color:green';
+                
+                
+            }else{
+                email.style = 'border-color:red'
+                
+            }
+            
+        }
+
 
 </script>

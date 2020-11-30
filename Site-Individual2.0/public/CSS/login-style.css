@@ -214,8 +214,10 @@ input{
 }
 
 .extra .msg_erro {
-    background-color:  #e7b9c4; 
-    color: black; 
+    background-color: #e7b9c4;
+    color: black;
+    margin-top: 39%;
+    font-size: 20px;
     visibility: hidden;
 }
   
