@@ -20,7 +20,7 @@
 
                     <center>
                         <ul>
-                            <li class="li_menu"><a href="menu.html">JOGOS</a>
+                            <li class="li_menu"><a href="index.html">JOGOS</a>
                             </li>
                             <li class="li_menu"><a href="riot+.html">RIOT+</a>
                             </li>
@@ -36,6 +36,7 @@
             </b>
 
         </div>
+        <a href="index.html"><img class="logo_diss" src="img/Logo-diss.png" alt="logo"></a>
     </div>
     <div class="container-corpo">
 
@@ -57,16 +58,16 @@
         </div>
         
         <div class="perfili">
-            <img class="img-perfil" src="img/img-perfil.gif" alt="">
-            <i><H2 class="perfil-h">Lucas Felix</i>#5016</H2> 
+            <img class="img-perfil" src="img/gif-personagem.gif" alt="">
+            <i><H2 id="nomeusuario1" class="perfil-h">Lucas Felix</i>#5016</H2> 
             <img style="height: 20px;" src="img/estrelas-removebg-preview.png" alt="">
             <div class="inf-perfil">
             <b><span class="inf-font">NOME DO USUÁRIO</span></b><br>
-            <i><span class="inf-font2">Lucas Felix#5016</span></i>
+            <i><span id="nomeusuario2" class="inf-font2">Lucas Felix#5016</span></i>
             <button class="botao-perfil" >Editar</button><br><br>
 
             <b><span class="inf-font">E-MAIL</span></b><br>
-            <span class="inf-font2">lucas.felix0012@gmail.com</span>
+            <span id="emailusuario" class="inf-font2">lucas.felix0012@gmail.com</span>
             <button class="botao-perfil" >Editar</button><br><br>
 
             <b><span class="inf-font">TELEFONE</span></b><br>
@@ -81,3 +82,18 @@
     </div>
 
 </body>
+
+<script>
+
+pegarinf();
+function pegarinf() {
+
+    var nome = sessionStorage.getItem('nome_usuario');
+    var email = sessionStorage.getItem('email_usuario');
+    
+    nomeusuario1.innerHTML = nome;
+    nomeusuario2.innerHTML = nome;
+    emailusuario.innerHTML = email;
+    
+}
+</script>

@@ -64,9 +64,9 @@
             if (resposta.ok) {
 
                 resposta.json().then(json => {
-
-                    sessionStorage.login_usuario_meuapp = json.login;
-                    sessionStorage.nome_usuario_meuapp = json.nome;
+                    
+                    sessionStorage.setItem('nome_usuario', json.NomeUsuario);
+                    sessionStorage.setItem('email_usuario', json.email);
 
                     window.location.href = 'index.html';
                 });
