@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="CSS/cadastro-style.css"> <!--CHAMANDO CSS EXTERNO!-->
+    <link rel="icon" href="img/Logo-diss.png">
+    <script src="https://kit.fontawesome.com/48b24e7021.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--CORPO DA PÁGINA!-->
+
+    <div id='container'>
+
+        <div id="container-img">
+            <img src="img/tela-cadastro1.jpg" alt="" id="back-img">
+        </div>
+      
+        <div id="form"> 
+            <h3 id='login'>CADASTRO</h3>
+            <img class="mao" src="img/riot-mao.png" alt="">
+
+        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+            <label for="NomeeSobrenome">Nome e sobrenome</label>
+            <input type="text" name="NomeeSobrenome" class="input-padrao" autofocus="autofocus" placeholder="Nome completo"  required minlength="4">
+            <label for="Usuario">Email</label>
+            <input type="text" name="Usuario" class="input-padrao" placeholder="Usuário para login"  required minlength="@">
+            <label for="senha">Senha</label><br>
+            <input type="password" name="senha" class="input-padrao" placeholder="**********"  required minlength="4">
+            <div id="buttons">
+                <button id='btn-cadastro' class='btns'><a href="login.html">Voltar</a></button>
+                <input type="submit" id="btn_entrar" value="Cadastrar" class="btns">
+                <img class="logo-riot" src="img/heimer-removebg-preview (2).png" alt="">
+                <img class="logo-diss" src="img/agents-group-539f9e91c0ca94a88baafa239808180b.png" alt="">
+           
+            </div>
+        </form>
+         <img src="img/carregando.gif" id="img_aguarde" style="display: none;" width="100px">
+    
+                <div id="div_erro" style="background-color: #bf8899; color: maroon; display: none;">
+                    Erro no cadastro
+                </div>
+        </div>
+                
+    </div>     
+
+    <!-- FOOTER -->
+<div class="footer">
+    <div class="container-footer">
+        <h3>© Copyright <strong>Riotdiss</strong>. Todos os direitos reservados</h3>
+    </div>
+</body>
+</html>
+
+
+<script>
+
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+     btn_entrar.disabled = true;
+     img_aguarde.style.display='block';
+         div_erro.style.display='none';
+ }
+
+ function finalizar_aguardar() {
+     btn_entrar.disabled = false;
+     img_aguarde.style.display='none';
+        div_erro.style.display='block';
+    }
+
+</script>

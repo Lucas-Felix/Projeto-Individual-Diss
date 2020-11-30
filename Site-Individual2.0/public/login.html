@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/login-style.css"> <!--CHAMANDO CSS EXTERNO!-->
+    <link rel="icon" href="img/Logo-diss.png">
+    <script src="https://kit.fontawesome.com/48b24e7021.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--CORPO DA PÁGINA!-->
+
+    <div id='container'>
+        
+        <div id="container-img">
+            <img src="img/Login-tela-fundo.jpg" alt="" id="back-img">
+        </div>
+        
+        <div id="form">
+            <form id="form_login" method="post" onsubmit="return entrar()">
+            <h3 id='login'>LOGIN</h3>
+            <img class="mao" src="img/riot-mao.png" alt="">
+            <input name="Usuario" type="text" id='input_email' placeholder="Email">
+            <br>
+            <input name="senha" type="password" id='input_senha' placeholder="Senha"> <!--DEIXAR O CAMPO COM BOLINHAS!-->
+            <br>
+            <div id="buttons">
+                <button id='btn' class='btns'>Entrar</button>
+                <button id='btn-cadastro' class='btns'><a href="cadastro.html">Cadastre-se</a></button>
+                <img class="logo-diss" src="img/Logo-diss.png" alt="">
+                <img class="logo-riot" src="img/Riot-games-Logo.png" alt="">
+            </div>
+            <div class="extra">
+                <div id="div_erro" class="msg_erro">
+                </div>
+
+                <img src="img/carregando.gif" id="img_aguarde">
+                
+            </div>
+        </form>
+        </div>
+        
+    </div>     
+
+    <!-- FOOTER -->
+<div class="footer">
+    <div class="container-footer">
+        <h3>© Copyright <strong>Riotdiss</strong>. Todos os direitos reservados</h3>
+    </div>
+</body>
+</html>
+<script>
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'index.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+
+</script>
